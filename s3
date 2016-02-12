@@ -54,9 +54,7 @@ class AWSCredentials(object):
     def getObject(self, url, **kwargs):
         """getObject(url) open the remote file and return a file object."""
 
-        pos = url.find("/")
-        assert pos != -1
-        bucket = url[:pos]
+        bucket = url.split('/')[0]
 
         filename = url.lstrip('{0}/'.format(bucket))
 
