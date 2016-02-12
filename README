@@ -23,9 +23,8 @@ can be found <a href="http://boto3.readthedocs.org/en/latest/guide/configuration
 A profile name should then be passed to /etc/apt/s3auth.conf
 
 Example of s3auth.conf file:
-```
-profile = yourProfileName
-```
+
+`profile = yourProfileName`
 
 ## Usage
 The bucket repo should be specified using an s3:// prefix, for example:
