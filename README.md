@@ -1,1 +1,56 @@
-README
+# apt-transport-s3 (boto3)
+
+### Table of Contents
+1. [Requirements](#requirements)
+2. [Configuration](#configuration)
+3. [Usage](#usage)
+4. [Contribution](#contribution)
+5. [License & Copyright](#license & copyright)
+
+## apt-transport-s3
+Connect servers to your S3 hosted apt repository using Boto 3.
+
+## Requirements
+### Additional package dependencies 
+1. python-configobj (installed by default in Debian)
+2. boto3
+
+## Configuration
+
+Communication with S3 is via Boto3 and authentication is provided via profiles. A setup guide, including AWS regional settings
+can be found <a href="http://boto3.readthedocs.org/en/latest/guide/configuration.html">here</a>
+
+A profile name should then be passed to /etc/apt/s3auth.conf
+
+Example of s3auth.conf file:
+
+`profile = yourProfileName`
+
+## Usage
+The bucket repo should be specified using an s3:// prefix, for example:
+
+`deb s3://aptbucketname/repo/ trusty main contrib non-free`
+
+Note: The S3 region should be determined within `~/.aws/config` and therefore a FQDN is not required within the apt source.
+
+## Contribution
+If you want to contribute a patch via PR please create it against master
+branch. 
+
+## License & Copyright
+    # Copyright (C) 2014 Bashton Ltd.
+    #
+    # This program is free software; you can redistribute it and/or modify
+    # it under the terms of the GNU General Public License as published by
+    # the Free Software Foundation; either version 2 of the License, or
+    # (at your option) any later version.
+
+    # This program is distributed in the hope that it will be useful,
+    # but WITHOUT ANY WARRANTY; without even the implied warranty of
+    # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    # GNU General Public License for more details.
+
+    # You should have received a copy of the GNU General Public License
+    # along with this program; if not, write to the Free Software
+    # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
