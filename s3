@@ -58,9 +58,7 @@ class AWSCredentials(object):
         assert pos != -1
         bucket = url[:pos]
 
-        uri = url.split('/')
-        uri.pop(0)
-        filename = '/'.join(uri)
+        filename = url.lstrip('{0}/'.format(bucket))
 
         obj = self.s3.Object(bucket_name=bucket, key=filename)
         response = obj.get()
