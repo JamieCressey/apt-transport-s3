@@ -61,8 +61,6 @@ class AWSCredentials(object):
             url.replace(
                 '{0}/'.format(bucket),
                 '')).decode('utf8')
-        syslog.syslog(url)
-        syslog.syslog(filename)
 
         obj = self.s3.Object(bucket_name=bucket, key=filename)
         response = obj.get()
